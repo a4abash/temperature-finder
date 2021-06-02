@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nepal Temperature</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Wanna Find current Temperature ?
+                </h1>
+                <h3><a href="{% url 'index' %}">Click me for Foreign temperature</a></h3>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="field has-addons">
+                            <div class="control is-expanded">
+                                <input class="input" type="text" name="cityname" placeholder="City Name">
+                            </div>
+                            <div class="control">
+                                <button type="submit" class="button is-info">
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-offset-4 is-4">
+                    <div class="box">
+                        <article class="media">
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <span class="title">{{temperature.city}}</span>
+                                        <br><br>
+                                        <span class="subtitle">Max:{{temperature.max}}</span>
+                                        <br><br>
+                                        <span class="subtitle">Min:{{temperature.min}}</span>
+                                        <br><br>
+                                        <span class="subtitle">Rainfall:{{temperature.rainfall}}</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </div>
+                <div class="column is-offset-2 is-2">
+                    <h3>Only available for mentioned places
+Dadeldhura,Dipayal,Dhangadi , Birendranagar , Nepalgunj , Jumla , Dang , Pokhara , Bhairahawa , Simara , Kathmandu , Okhaldhunga , Taplejung , Dhankuta , Biratnagar , Jomsom , Dharan , Lumle , Janakpur , Jiri!!! Scrapped from http://mfd.gov.np/weather/</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html>
