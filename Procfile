@@ -1,0 +1,1 @@
+web: gunicorn nepaltemperature.wsgi --log-file -
