@@ -21,4 +21,4 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('foreign/', views.index,name='index'),  # foreign api
     path('', views.home,name='home'),  # Nepali api
-]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
